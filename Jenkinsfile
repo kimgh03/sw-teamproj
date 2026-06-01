@@ -20,7 +20,9 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'java -cp classes AppTest > test_results.txt'
+                sh '''
+                    java -cp classes AppTest > test_results.txt 2>&1
+                '''
             }
         }
     }
@@ -29,9 +31,11 @@ pipeline {
         always {
             archiveArtifacts artifacts: 'test_results.txt', allowEmptyArchive: true
         }
+
         failure {
             echo 'Build or test failed'
         }
+
         success {
             echo 'Build and test succeeded'
         }
