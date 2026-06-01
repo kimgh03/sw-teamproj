@@ -10,14 +10,17 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'if not exist classes mkdir classes'
-                bat 'javac -encoding UTF-8 -d classes Practice\\src\\*.java'
+                sh '''
+                    mkdir -p classes
+                    find Practice/src -name "*.java" > sources.txt
+                    javac -encoding UTF-8 -d classes @sources.txt
+                '''
             }
         }
 
         stage('Test') {
             steps {
-                bat 'java -cp classes AppTest > test_results.txt'
+                sh 'java -cp classes AppTest > test_results.txt'
             }
         }
     }
@@ -34,4 +37,3 @@ pipeline {
         }
     }
 }
-
