@@ -1,0 +1,12 @@
+classes/
+test_results.txt
+*.class
+.idea/
+.vscode/
+tools/
+tmp/
+jenkins_home/
+jenkins.out.log
+jenkins.err.log
+ngrok.log
+
