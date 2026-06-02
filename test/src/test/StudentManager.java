@@ -24,3 +24,5 @@ public class StudentManager {
         return students.contains(name);
     }
 }
+
+#수정 test 확인
