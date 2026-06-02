@@ -23,6 +23,10 @@ public class StudentManager {
     public boolean hasStudent(String name) {
         return students.contains(name);
     }
+    
+    public void getStudentInfo(string name) {
+    	return;
+    }
 }
 
 #수정 test 확인
